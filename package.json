@@ -1,11 +1,14 @@
 {
   "name": "baxi-create-api",
   "version": "0.1.0",
-  "private": true,
+  "description": "A Vue plugin which make Vue component invocated by API.",
+  "main": "./dist/baxi-create-api.js",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "dev": "cross-env webpack-dev-server --inline --config ./build/webpack.dev.config.js",
+    "build": "webpack --config ./build/webpack.prod.config.js",
+    "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js",
+    "codecov": "codecov",
+    "test": "npm run unit && npm run codecov"
   },
   "dependencies": {
     "core-js": "^3.6.5",
